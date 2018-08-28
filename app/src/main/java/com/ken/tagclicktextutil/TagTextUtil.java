@@ -105,8 +105,22 @@ public class TagTextUtil {
 
     private static final String ALL = TOPIC ;
 
-    public  SpannableStringBuilder getTagContent(String source, final Context context, final TextView textView) {
+    private ClickListener clickListener;
 
+    public void setClickListener(ClickListener clickListener) {
+        this.clickListener = clickListener;
+    }
+
+    /**
+     *
+     * 点击监听
+     */
+    public  interface ClickListener{
+        void click(Section section);
+    }
+
+    public  SpannableStringBuilder getTagContent(String source, final Context context, final TextView textView,ClickListener clickListener) {
+        this.clickListener = clickListener;
         final ArrayList<Section> sections = new ArrayList<>();
 
         //设置正则
@@ -217,7 +231,7 @@ public class TagTextUtil {
                                 downSection = section;
                                 textView.setText(spannableStringBuilder);
                                 textView.getParent().requestDisallowInterceptTouchEvent(true);//不允许父view拦截
-                                Log.d(TAG, "downSection" + downSection.toString());
+                                Log.d(TAG, "downSection == sssss" + downSection.toString());
                                 return true;
                             }
                         }
@@ -252,11 +266,11 @@ public class TagTextUtil {
                         if (Math.abs(upX - downX) < slop && Math.abs(upY - downY) < slop) {
                             //TODO 此处回调
                             if (downSection != null) {
+                                Log.e(TAG, "onTouch: dosss  == " + downSection );
                                 /**
                                  * 此处回调
                                  */
-                                textView.setTag(downSection);
-                                textView.performClick();
+                                if(TagTextUtil.this.clickListener !=null)TagTextUtil.this.clickListener.click(downSection);
                                 downSection = null;
                             } else {
                                 return false;

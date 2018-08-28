@@ -17,14 +17,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         TextView content = findViewById(R.id.content);
 
-        content.setText(new TagTextUtil().getTagContent(contentString,this,content));
-
-        content.setOnClickListener(new View.OnClickListener() {
+        content.setText(new TagTextUtil().getTagContent(contentString, this, content, new TagTextUtil.ClickListener() {
             @Override
-            public void onClick(View view) {
-                TagTextUtil.Section section = (TagTextUtil.Section) view.getTag();
+            public void click(TagTextUtil.Section section) {
                 Toast.makeText(MainActivity.this, section.getName() + "   index ==  " +section.getIndex() , Toast.LENGTH_SHORT).show();
             }
-        });
+        }));
+
+
     }
 }
