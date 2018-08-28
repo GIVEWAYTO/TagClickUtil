@@ -5,4 +5,5 @@ c.将处理好的字符串放入textview中进行点击响应
 
 
 效果图:
+<br>
 ![](result.gif)
