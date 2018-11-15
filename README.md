@@ -10,3 +10,24 @@
 效果图:
 <br>
 ![](result.gif)
+
+<br>
+## 数据类说明
+^!74&&此余之所得也。!^  
+项目中需求的格式
+^!为开始标志符
+!^为结束标识符
+74为标签ID
+&&为ID和内容的连接符
+
+以上格式若想修改，只要再TagClickUtil中替换匹配的正则表达式即可
+
+### 话题类型（可自行修改）
+    public static final int TOPIC = 1;// ##普通标签或者话题
+    public static final int LOCATION = 2;// ##地址标签
+    public static final int PRICE = 3;// ##价格标签
+    public static final int BRAND = 4;// ##品牌标签
+    public static final int AT = 5;  //@某人
+
+### 正则
+   private static final String TOPIC = "(\\^[#$!@]).+?([#!$@]\\^)";   // ##标签正则匹配
