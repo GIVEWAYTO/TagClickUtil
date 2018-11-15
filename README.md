@@ -9,7 +9,7 @@
 
 效果图:
 
-![](result.gif)
+![](/result.gif)
 <br>
 
 ## 数据类说明
