@@ -8,7 +8,7 @@
 
 
 效果图:
-<br>
+
 ![](result.gif)
 <br>
 
@@ -35,4 +35,4 @@
     public static final int AT = 5;  //@某人
 
 ### 正则
-   private static final String TOPIC = "(\\^[#$!@]).+?([#!$@]\\^)";   // ##标签正则匹配
+    private static final String TOPIC = "(\\^[#$!@]).+?([#!$@]\\^)";   // ##标签正则匹配
