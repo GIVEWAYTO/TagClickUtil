@@ -25,7 +25,7 @@
 <br>
 &&为ID和内容的连接符
 
-以上格式若想修改，只要再TagClickUtil中替换匹配的正则表达式即可
+以上格式若想修改，只要再TagTextClickUtil中替换匹配的正则表达式即可
 
 ### 话题类型（可自行修改）
     public static final int TOPIC = 1;      // 普通标签或者话题
